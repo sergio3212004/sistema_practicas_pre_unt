@@ -58,6 +58,7 @@
                     id="password"
                     name="password"
                     type="password"
+                    placeholder="•••••••••"
                     required
                     class="w-full rounded-lg border border-slate-300 bg-white text-slate-900 placeholder-slate-400 px-3 py-2 pr-10 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 outline-none transition"
                 >
