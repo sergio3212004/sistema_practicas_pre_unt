@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Models\Rol;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -62,4 +63,28 @@ class User extends Authenticatable
         return $this->hasOne(Empresa::class, 'user_id', 'id');
     }
 
+    public function rol() {
+        return $this->belongsTo(Rol::class, 'role_id', 'id');
+    }
+
+    public function getNombreAttribute()
+    {
+        $mapa = [
+            'alumno' => ['relacion' => 'alumno', 'campo' => 'nombres'],
+            'profesor' => ['relacion' => 'profesor', 'campo' => 'nombres'],
+            'director' => ['relacion' => 'director', 'campo' => 'nombres'],
+            'empresa' => ['relacion' => 'empresa', 'campo' => 'nombre'],
+        ];
+
+        $rolNombre = $this->rol->rol ?? null;
+
+        if ($rolNombre && isset($mapa[$rolNombre])) {
+            $relacion = $mapa[$rolNombre]['relacion'];
+            $campo = $mapa[$rolNombre]['campo'];
+
+            return $this->$relacion?->$campo ?? $this->email;
+        }
+
+        return $this->email;
+    }
 }
