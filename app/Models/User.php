@@ -23,6 +23,10 @@ class User extends Authenticatable
         'role_id'
     ];
 
+    public function alumno() {
+        return $this->hasOne(Alumno::class, 'user_id');
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -45,4 +49,5 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
 }
