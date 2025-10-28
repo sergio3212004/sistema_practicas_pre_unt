@@ -5,6 +5,8 @@
         <p class="mt-1 text-sm text-gray-600">Bienvenido de nuevo, {{ Auth::user()->getNombreAttribute() }}</p>
     </div>
 
-
+    <h2>
+        Bienvenido {{ Auth::user()->rol }}
+    </h2>
 
 </x-app-layout>
