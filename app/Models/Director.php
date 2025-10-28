@@ -2,23 +2,22 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Alumno extends Model
+class Director extends Model
 {
     //
-    use HasFactory;
-    protected $primaryKey = 'codigo_matricula';
+    protected $table = 'directores';
+    protected $primaryKey = 'codigo_director';
     public $incrementing = false;
     protected $keyType = 'string';
 
     protected $fillable = [
-        'codigo_matricula',
+        'codigo_director',
         'user_id',
         'nombres',
-        'apellido_materno',
         'apellido_paterno',
+        'apellido_materno',
         'telefono'
     ];
 

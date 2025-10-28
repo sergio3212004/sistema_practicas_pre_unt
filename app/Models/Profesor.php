@@ -2,28 +2,26 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Alumno extends Model
+class Profesor extends Model
 {
     //
-    use HasFactory;
-    protected $primaryKey = 'codigo_matricula';
-    public $incrementing = false;
+    protected $table = 'profesores';
+    protected $primaryKey = 'codigo_profesor';
     protected $keyType = 'string';
+    public $incrementing = false;
 
     protected $fillable = [
-        'codigo_matricula',
+        'codigo_profesor',
         'user_id',
         'nombres',
-        'apellido_materno',
         'apellido_paterno',
+        'apellido_materno',
         'telefono'
     ];
 
     public function user() {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
-
 }
