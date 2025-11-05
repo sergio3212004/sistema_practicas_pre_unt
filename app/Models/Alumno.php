@@ -26,4 +26,8 @@ class Alumno extends Model
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 
+    public function profesorAsignado() {
+        return $this->belongsTo(ProfesorAsignado::class, 'alumno_id', 'codigo_matricula');
+    }
+
 }

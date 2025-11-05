@@ -16,14 +16,14 @@ class EmpresaSeeder extends Seeder
         //
         Empresa::create([
             'ruc' => '12345678987',
-            'user_id' => 3,
+            'user_id' => 5,
             'razon_social_id' => 3,
-            'nombre' => 'Dildos a domicilio',
+            'nombre' => 'Empresa prueba',
             'telefono' => '968856123',
             'departamento' => 'La libertad',
             'provincia' => 'Trujillo',
             'distrito' => 'Trujillo',
-            'direccion' => 'Pene doblado 123'
+            'direccion' => 'Calle 123'
         ]);
     }
 }

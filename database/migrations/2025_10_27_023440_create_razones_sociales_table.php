@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('razones_sociales', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 50);
             $table->string('acronimo', 50);
             $table->timestamps();
         });

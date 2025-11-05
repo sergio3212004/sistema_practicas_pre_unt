@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Profesor extends Model
 {
@@ -24,4 +25,18 @@ class Profesor extends Model
     public function user() {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+
+    public function alumnos(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Alumno::class,
+            'profesores_asignados',
+            'profesor_id',
+            'alumno_id',
+            'codigo_profesor',
+            'codigo_matricula'
+        )->withTimestamps();
+    }
+
 }

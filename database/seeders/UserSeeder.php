@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
@@ -15,37 +15,53 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::updateOrCreate(
-            ['email' => 'alumno123@unitru.edu.pe'],
+        //
+        DB::table('users')->insert([
             [
-                'password' => 'contraseña123',
-                'role_id' => 1
-            ]
-        );
-
-        User::updateOrCreate(
-            ['email' => 'profesor123@unitru.edu.pe'],
+                'email' => 'alumno1@unitru.edu.pe',
+                'password' => Hash::make('password'),
+                'role_id' => 1,
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
             [
-                'password' => 'contraseña123',
-                'role_id' => 2
-            ]
-        );
-
-        User::updateOrCreate(
-            ['email' => 'empresa123@gmail.com'],
+                'email' => 'alumno2@unitru.edu.pe',
+                'password' => Hash::make('password'),
+                'role_id' => 1,
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
             [
-                'password' => 'contraseña123',
-                'role_id' => 3
-            ]
-        );
-
-        User::updateOrCreate(
-            ['email' => 'director@unitru.edu.pe'],
+                'email' => 'profesor1@unitru.edu.pe',
+                'password' => Hash::make('password'),
+                'role_id' => 2,
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
             [
-                'password' => 'contraseña123',
-                'role_id' => 4
-            ]
-        );
-
+                'email' => 'profesor2@unitru.edu.pe',
+                'password' => Hash::make('password'),
+                'role_id' => 2,
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'email' => 'empresa@gmail.com',
+                'password' => Hash::make('password'),
+                'role_id' => 3,
+                'email_verified_at' => now(),
+                'remember_token' => Str::random(10),
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+        ]);
     }
 }
